@@ -1,9 +1,14 @@
 Package: runner
 Type: Package
-Title: What the Package Does (Title Case)
+Title: Aiding runners log, calculate, and visualize relevant and informative
+    data about their running progress.
 Version: 0.1.0
-Author: Who wrote it
-Maintainer: Who to complain to <yourfault@somewhere.net>
-Description: More about what it does (maybe more than one line)
-License: What license is it under?
+Author: Anushka Makhija, Brian Li, Armaan Shah
+Description: Functions for logging runs and visualizing running data over
+    time, as well as, calculating relevant data about personal health and running
+    progress.
+License: LGPL
 LazyData: TRUE
+Suggests:
+    testthat
+RoxygenNote: 5.0.1
