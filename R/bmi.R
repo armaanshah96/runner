@@ -8,6 +8,7 @@
 #' bmi(66,140)
 #' @export
 bmi <- function(height,weight,units="english") {
+  units = tolower(units)
   # Check parameter types are correct
   if(class(height) != "numeric") {
     stop("height must be a numeric!")
@@ -23,7 +24,6 @@ bmi <- function(height,weight,units="english") {
   else{
     if(units != "english" && units != "metric") {
       stop("units must be either 'english' or 'metric'")
-      geterrmessage()
     }
   }
 
