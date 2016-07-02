@@ -21,7 +21,7 @@ progress_plot <- function(name,type="calories") {
   }
   else {
     type <- tolower(type)
-    if(type=='calories' || type=='heartrate') {
+    if(type!='calories' && type!='heartrate') {
       stop("type must be either 'calories' or heartrate")
     }
   }
