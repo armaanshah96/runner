@@ -54,7 +54,7 @@ body_fat <- function(weight, gender, wrist = 0, waist, hip = 0, forearm = 0, uni
     if(tolower(gender) == "female"){
       bfp = (weight - ((weight * 0.732 + 8.987) + (wrist/3.140) - (waist * 0.157) - (hip * 0.249) + (forearm * .434))) * 100/weight
     }
-    return(signif(bfp))
+    return(signif(bfp, 4))
   }
 
   # Body Fat Percentage formula for metric units
@@ -70,6 +70,6 @@ body_fat <- function(weight, gender, wrist = 0, waist, hip = 0, forearm = 0, uni
     if(tolower(gender) == "female"){
       bfp = (weight - ((weight * 0.732 + 8.987) + (wrist/3.140) - (waist * 0.157) - (hip * 0.249) + (forearm * .434))) * 100/weight
     }
-    return(signif(bfp))
+    return(signif(bfp, 4))
   }
 }
