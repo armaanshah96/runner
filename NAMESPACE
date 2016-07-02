@@ -2,3 +2,5 @@
 
 export(bmi)
 export(body_fat)
+export(calories_burned)
+export(progress_plot)
