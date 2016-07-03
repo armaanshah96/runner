@@ -19,7 +19,7 @@ library(RSQLite)
 #'              Saves the data as a .RData file under the user's chosen file name.
 #' @examples
 #' create_log("filename.rds", "english", "09/30/2016", "Anna", 18, "female", 57, 128, 10, 1)
-#' create_log("filename.rds", "metric", "09/30/2016", "Matt", 19, "male", 57, 128, 10, 1, 72)
+#' create_log("filename.rds", "metric", "09/30/2016", "Jon", 19, "male", 57, 128, 10, 1, 72)
 #'
 # CREATE LOG
 
@@ -29,22 +29,21 @@ create_log <- function(filename, units = "english", date, name, age, gender, hei
   log <- data.frame(c("Date", "Name", "Age", "Gender", "Height", "Weight",
                      "Time", "Distance", "Heart Rate", "Calories Burned"))
 
-  library(lubridate)
-
-  if (class(date) != "character" && class(name) != "character" && class(age) != "numeric" &&
-      class(gender) != "character" && class(height) != "numeric" && class(weight) != "numeric" &&
-      class(time) != "numeric" && class(distance) != "numeric" && (class(heartrate) != "numeric" &&
-      !is.na(heartrate)) && (units != "english" && units != "metric")) {
-    stop("Incorrect class")
+  if ((tolower(units) != "english" || tolower(units) != "metric") || class(date) != "character" ||
+      class(name) != "character" || class(age) != "numeric" || class(gender) != "character" ||
+      class(height) != "numeric" || class(weight) != "numeric" || class(time) != "numeric" ||
+      class(distance) != "numeric" || (class(heartrate) != "numeric" || !is.na(heartrate))) {
+    stop("Incorrect class for one or more parameters")
   }
   else{
+    library(lubridate)
     mdy(date)
 
     tolower(name)
     tolower(gender)
 
     if (gender != "male" | gender != "female"){
-      stop("gender input must be 'male', 'female', 'Male', or 'Female'")
+      stop("gender input must be 'male' or 'female'")
     }
     else{
       newrow <- c(date, name, age, gender, height, weight, time, distance, heartrate)
@@ -86,8 +85,8 @@ create_log <- function(filename, units = "english", date, name, age, gender, hei
 #' @description Updates the log with the user's newest workout information. Loads in the stored data frame
 #'              using the inputted filename and adds in a new row with the user's newest workout information.
 # UPDATE LOG
-update_log <- function(filename, name, age, gender, height, weight,
-                       time, distance, heartrate = NA, units = "english") {
+update_log <- function(filename, units = "english", date, name, age, gender, height, weight,
+                       time, distance, heartrate = NA){
 
   if(class(filename != "character")) {
     stop("File name must be a character!")
@@ -95,6 +94,34 @@ update_log <- function(filename, name, age, gender, height, weight,
   else{
   log <- readRDS(filename)
   }
+
+  if (class(date) != "character" || class(name) != "character" || class(age) != "numeric" ||
+      class(gender) != "character" || class(height) != "numeric" || class(weight) != "numeric" ||
+      class(time) != "numeric" || class(distance) != "numeric" ||
+      (class(heartrate) != "numeric" || !is.na(heartrate)) || (units != "english" || units != "metric")) {
+    stop("Incorrect class")
+  }
+  else {
+    library(lubridate)
+    mdy(date)
+
+    tolower(name)
+    tolower(gender)
+
+    if (gender != "male" | gender != "female"){
+      stop("gender input must be 'male' or 'female'")
+    }
+    else {
+      newrow <- c(date, name, age, gender, height, weight, time, distance, heartrate)
+      if(!is.na(heartrate)){
+        calories_burned(age, heartrate, weight, time, gender, units)
+      }
+      else {
+        NA
+      }
+    }
+  }
+
 
   if (class(name) != "character" | class(age) != "numeric" | class(gender) != "character" |
       class(height) != "numeric" | class(weight) != "numeric" | class(time) != "character" |
