@@ -1,4 +1,4 @@
-#' Calculates Calories Burned From Running
+#' Calculates Calories Burned From Exercise
 #' @param age Age of individual of numeric vector.
 #' @param heart_rate Heart rate (bpm) of individual of numeric vector.
 #' @param weight Weight of individual of numeric vector. In pounds if english units and kilograms if metric units.
@@ -9,9 +9,9 @@
 #' @examples
 #' calories_burned(19, 130, 152, 60, "male", "metric")
 #' @export
+
 calories_burned <- function(age, heart_rate, weight, time, gender, units="english") {
   # Check parameter types are correct
-  units = tolower(units)
 
   if(class(age) != "numeric") {
     stop("age must be a numeric!")
@@ -33,7 +33,8 @@ calories_burned <- function(age, heart_rate, weight, time, gender, units="englis
     stop("units must be a character!")
   }
   else{
-    if(tolower(units) != "english" && tolower(units) != "metric") {
+    units = tolower(units)
+    if(units != "english" && units != "metric") {
       stop("units must be either 'english' or 'metric'")
       geterrmessage()
     }
@@ -46,7 +47,7 @@ calories_burned <- function(age, heart_rate, weight, time, gender, units="englis
     if(tolower(gender) == "female"){
       calories = ((age * 0.074) - (weight * 0.05741) + (heart_rate * .4472) - 20.4022) * time/4.184
     }
-    return(signif(calories))
+    return(signif(calories,4))
   }
 
   # Calories burned formula for metric units
@@ -58,6 +59,6 @@ calories_burned <- function(age, heart_rate, weight, time, gender, units="englis
     if(tolower(gender) == "female"){
       calories = ((age * 0.074) - (weight * 0.05741) + (heart_rate * .4472) - 20.4022) * time/4.184
     }
-    return(signif(calories))
+    return(signif(calories,4))
   }
 }
