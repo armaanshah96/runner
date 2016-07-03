@@ -8,16 +8,20 @@
 #' @param units Character vector representing the units convention used for variables. Either "english" or "metric". Default is "english".
 #' @return numeric vector representing the BMI of an individual based on their height and weight
 #' @examples
-#' body_fat(152, "male", 6.5, 30, 34, 10, "english")
+#' body_fat(152, "male",30, 6.5, 34, 10, "english")
 #' @export
-body_fat <- function(weight, gender, wrist = 0, waist, hip = 0, forearm = 0, units="english") {
+body_fat <- function(weight, gender, waist, wrist = 0, hip = 0, forearm = 0, units="english") {
   # Check parameter types are correct
   if(class(weight) != "numeric") {
     stop("weight must be a numeric!")
   }
 
   if(class(gender) != "character") {
-    stop("gender must be a numeric!")
+    stop("gender must be a character!")
+  }
+
+  if(tolower(gender) != "male" & tolower(gender) != "female") {
+    stop("gender must be either 'male' or 'female'")
   }
 
   if(class(wrist) != "numeric") {
