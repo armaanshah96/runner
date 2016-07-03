@@ -4,15 +4,15 @@
 \alias{body_fat}
 \title{Calculates Body Fat Percentage}
 \usage{
-body_fat(weight, gender, wrist = 0, waist, hip = 0, forearm = 0,
+body_fat(weight, gender, waist, wrist = 0, hip = 0, forearm = 0,
   units = "english")
 }
 \arguments{
 \item{weight}{Weight of individual of numeric vector. In pounds if english units and kilograms if metric units.}
 
-\item{wrist}{Wrist measurement of individual of numeric vector. In inches if english units and centimeters if metric units.}
-
 \item{waist}{Waist measurement at navel of individual of numeric vector. In inches if english units and centimeters if metric units.}
+
+\item{wrist}{Wrist measurement of individual of numeric vector. In inches if english units and centimeters if metric units.}
 
 \item{hip}{Hip measurement of individual at fullest point of numeric vector. In inches if english units and centimeters if metric units.}
 
@@ -29,6 +29,6 @@ numeric vector representing the BMI of an individual based on their height and w
 Calculates Body Fat Percentage
 }
 \examples{
-body_fat(152, "male", 6.5, 30, 34, 10, "english")
+body_fat(152, "male",30, 6.5, 34, 10, "english")
 }
 

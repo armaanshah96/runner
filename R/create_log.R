@@ -1,3 +1,4 @@
+#' Create a running log to track running data
 #' @param filename The name under which you want the file saved. Should include .rds extension.
 #' @param units "english" or "metric"
 #' @param date User's date. Should be in "mm/dd/yyyy" format, of the class character.
@@ -18,6 +19,7 @@
 #' @examples
 #' create_log("english", "09/30/2016", "Anna", 18, "female", 57, 128, 10, 1)
 #' create_log("metric", "09/30/2016", "Jon", 19, "male", 57, 128, 10, 1, 72)
+#' @export
 
 create_log <- function(units = "english", date, name, age, gender, height, weight,
                        time, distance, heartrate = NA) {
@@ -66,4 +68,4 @@ create_log <- function(units = "english", date, name, age, gender, height, weigh
     }
   }
   View(log)
-  }
+}

@@ -7,8 +7,10 @@ Author: Anushka Makhija, Brian Li, Armaan Shah
 Description: Functions for logging runs and visualizing running data over
     time, as well as, calculating relevant data about personal health and running
     progress.
-License: LGPL
 LazyData: TRUE
 Suggests:
-    testthat
+    testthat,
+    knitr,
+    roxygen2,
+    devtools
 RoxygenNote: 5.0.1

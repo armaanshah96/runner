@@ -5,6 +5,7 @@
 #' @return Returns a plot of type vs. time to give an understanding of progress over time.
 #' @examples
 #' progress_plot("John", type="heartrate")
+#' @import ggplot2
 #' @export
 progress_plot <- function(name,type="calories") {
   # Check if name is right type and tolower name
@@ -26,11 +27,13 @@ progress_plot <- function(name,type="calories") {
     }
   }
   filename <- paste(name,".rds",sep="")
-  log <- load(".RData")
-  library(ggplot2)
+  log <- readRDS(filename)
+  # return(class(log))
   if(type=='heartrate'){
     #regardless of na values plot
-    ggplot(log,aes(x=date,y=heartrate)) +geom_point()+geom_smooth()
+    ggplot(log,aes(x=Date,y=Heart.Rate)) +geom_point()+geom_smooth()
   }
-  ggplot(log,aes(x=date,y=calories)) +geom_point()+geom_smooth()
+  else{
+    ggplot(log,aes(x=Date,y=Calories.Burned)) + geom_point() +geom_smooth()
+  }
 }
