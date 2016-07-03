@@ -47,6 +47,7 @@ calories_burned <- function(age, heart_rate, weight, time, gender, units="englis
     if(tolower(gender) == "female"){
       calories = ((age * 0.074) - (weight * 0.05741) + (heart_rate * .4472) - 20.4022) * time/4.184
     }
+    calories = calories *-1
     return(signif(calories,4))
   }
 
@@ -59,6 +60,7 @@ calories_burned <- function(age, heart_rate, weight, time, gender, units="englis
     if(tolower(gender) == "female"){
       calories = ((age * 0.074) - (weight * 0.05741) + (heart_rate * .4472) - 20.4022) * time/4.184
     }
+    calories = calories *-1
     return(signif(calories,4))
   }
 }
