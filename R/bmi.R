@@ -27,6 +27,10 @@ bmi <- function(height,weight,units="english") {
     }
   }
 
+  if(height==0) {
+    stop("BMI cannot be calculated with height == 0")
+  }
+
   body_mass_index <- weight/height^2
   # BMI formula for english units
   if(units=="english"){

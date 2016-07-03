@@ -25,7 +25,7 @@ progress_plot <- function(name,type="calories") {
       stop("type must be either 'calories' or heartrate")
     }
   }
-  filename <- paste(name,".RData",sep="")
+  filename <- paste(name,".rds",sep="")
   log <- load(".RData")
   library(ggplot2)
   if(type=='heartrate'){
