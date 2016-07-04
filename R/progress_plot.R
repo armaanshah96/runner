@@ -31,9 +31,9 @@ progress_plot <- function(name,type="calories") {
   # return(class(log))
   if(type=='heartrate'){
     #regardless of na values plot
-    ggplot(log,aes(x=Date,y=Heart.Rate)) +geom_point()+geom_smooth()
+    ggplot(log,aes(x=Date,y=Heart.Rate)) +geom_point()+geom_smooth(se=FALSE)
   }
   else{
-    ggplot(log,aes(x=Date,y=Calories.Burned)) + geom_point() +geom_smooth()
+    ggplot(log,aes(x=Date,y=Calories.Burned)) + geom_point() +geom_smooth(se=FALSE)
   }
 }
