@@ -30,10 +30,11 @@ create_log(units = "english", date, name, age, gender, height, weight, time,
 
 \item{filename}{The name under which you want the file saved. Should include .rds extension.}
 }
+\value{
+Dataframe with user's run info.
+}
 \description{
-Creates a new log for the user's running data. Using user info and measurements,
-             creates a data frame with the info entered along with calories burned, bmi, and body_fat.
-             Saves the data as a .RData file under the user's chosen file name.
+Create a running log to track running data
 }
 \examples{
 create_log("english", "09/30/2016", "Anna", 18, "female", 57, 128, 10, 1)

@@ -1,23 +1,16 @@
-
 #' Update running log to track running data
+#' @param units 'english' or 'metric'.
 #' @param name User's name. Should be in character format
+#' @param date Date of run. Should be in "mm/dd/yyyy" format.
 #' @param age User's age. Should be in numeric format.
 #' @param gender User's gender. Should be in character format, and should either be 'male' or 'female'.
 #' @param height User's height. Should be in numeric format.
 #' @param weight User's weight. Should be in numeric format.
-#' @param wrist User's wrist measurement from around the wrist. Should be in numeric format.
-#' @param waist User's waist measurement from around the waist. Should be in numeric format.
-#' @param hip User's hip measurement from around the hip. Should be in numeric format.
-#' @param forearm User's forearm measurement from around the forearm. Should be in numeric format.
 #' @param time The amount of time the user ran the distance in. Measured in minutes. Should be in character format.
 #' @param distance The distance the user ran. Measured in miles. Should be in numeric format.
 #' @param heartrate Optional parameter - user's heartrate during workout. Should be in numeric format.
-#' @param units 'english' or 'metric'.
-#' @import RSQLite
+#' @return Updated dataframe with runner's info.
 #' @import lubridate
-#'
-#' @description Updates the log with the user's newest workout information. Loads in the stored data frame
-#'              using the inputted filename and adds in a new row with the user's newest workout information.
 #' @examples
 #' update_log("english", "09/30/2016", "Anna", 18, "female", 57, 128, 10, 1)
 #' update_log("metric", "09/30/2016", "Jon", 19, "male", 57, 128, 10, 1, 72)

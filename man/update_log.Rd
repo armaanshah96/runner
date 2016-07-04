@@ -10,6 +10,8 @@ update_log(units = "english", date, name, age, gender, height, weight, time,
 \arguments{
 \item{units}{'english' or 'metric'.}
 
+\item{date}{Date of run. Should be in "mm/dd/yyyy" format.}
+
 \item{name}{User's name. Should be in character format}
 
 \item{age}{User's age. Should be in numeric format.}
@@ -25,18 +27,12 @@ update_log(units = "english", date, name, age, gender, height, weight, time,
 \item{distance}{The distance the user ran. Measured in miles. Should be in numeric format.}
 
 \item{heartrate}{Optional parameter - user's heartrate during workout. Should be in numeric format.}
-
-\item{wrist}{User's wrist measurement from around the wrist. Should be in numeric format.}
-
-\item{waist}{User's waist measurement from around the waist. Should be in numeric format.}
-
-\item{hip}{User's hip measurement from around the hip. Should be in numeric format.}
-
-\item{forearm}{User's forearm measurement from around the forearm. Should be in numeric format.}
+}
+\value{
+Updated dataframe with runner's info.
 }
 \description{
-Updates the log with the user's newest workout information. Loads in the stored data frame
-             using the inputted filename and adds in a new row with the user's newest workout information.
+Update running log to track running data
 }
 \examples{
 update_log("english", "09/30/2016", "Anna", 18, "female", 57, 128, 10, 1)

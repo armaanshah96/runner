@@ -10,12 +10,8 @@
 #' @param time The number of minutes the user ran the distance in. Should be in numeric format.
 #' @param distance The distance the user ran. Should be in numeric format.
 #' @param heartrate Optional parameter - user's heartrate during workout. Should be in numeric format.
-#' @import RSQLite
+#' @return Dataframe with user's run info.
 #' @import lubridate
-#'
-#' @description Creates a new log for the user's running data. Using user info and measurements,
-#'              creates a data frame with the info entered along with calories burned, bmi, and body_fat.
-#'              Saves the data as a .RData file under the user's chosen file name.
 #' @examples
 #' create_log("english", "09/30/2016", "Anna", 18, "female", 57, 128, 10, 1)
 #' create_log("metric", "09/30/2016", "Jon", 19, "male", 57, 128, 10, 1, 72)
